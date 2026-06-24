@@ -1,0 +1,23 @@
+$kind: http-request
+name: update post
+url: http://localhost:4000/api/v1/posts/update/6a3bf1184abe1973c736073a
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+        "name": "alkimany",
+        "description": "friends",
+        "age": "35"
+    }
+settings:
+  disabledSystemHeaders:
+    - accept-encoding
+    - content-length
+    - host
+    - user-agent
+    - accept
+    - connection
+order: 3662884848820790

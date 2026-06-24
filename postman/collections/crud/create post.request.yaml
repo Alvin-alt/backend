@@ -1,0 +1,24 @@
+$kind: http-request
+name: create post
+url: http://localhost:4000/api/v1/posts/create
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+        "name": "shappy",
+        "description": "chef",
+        "age": "23"
+    }
+settings:
+  disabledSystemHeaders:
+    - accept-encoding
+    - accept
+    - user-agent
+    - host
+    - content-length
+    - connection
+    - content-type
+order: 1782311737708
