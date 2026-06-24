@@ -1,0 +1,28 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "a tutorial for backend",
+  "main": "backend/src/config/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node backend/src/config/index.js",
+    "dev": "nodemon backend/src/config/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alvin-alt/backend.git"
+  },
+  "author": "Alvin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alvin-alt/backend/issues"
+  },
+  "homepage": "https://github.com/Alvin-alt/backend#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.7.1",
+    "nodemon": "^3.1.14"
+  }
+}

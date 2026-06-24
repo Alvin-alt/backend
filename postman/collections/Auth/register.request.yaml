@@ -1,0 +1,24 @@
+$kind: http-request
+name: register
+url: http://localhost:4000/api/v1/users/register
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+        "username": "alvin",
+        "email": "alvin2@gmail.com",
+        "password": "654321"
+    }
+settings:
+  disabledSystemHeaders:
+    - host
+    - user-agent
+    - accept
+    - accept-encoding
+    - connection
+    - content-length
+    - content-type
+order: 1782296153518

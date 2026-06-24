@@ -1,0 +1,22 @@
+$kind: http-request
+name: logout
+url: http://localhost:4000/api/v1/users/logout
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+        "email": "alvin2@gmail.com"
+    }
+settings:
+  disabledSystemHeaders:
+    - content-length
+    - host
+    - user-agent
+    - accept
+    - accept-encoding
+    - connection
+    - content-type
+order: 1647081750796654
