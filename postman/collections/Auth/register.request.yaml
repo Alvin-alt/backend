@@ -8,8 +8,8 @@ body:
   type: json
   content: |-
     {
-        "username": "alvin",
-        "email": "alvin2@gmail.com",
+        "username": "alvin_new",
+        "email": "alvin_new@gmail.com",
         "password": "654321"
     }
 settings:

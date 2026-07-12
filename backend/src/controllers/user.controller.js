@@ -1,4 +1,6 @@
 import { User} from "../models/user.model.js";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 const registerUser = async (req, res) => {
     try {
@@ -14,10 +16,10 @@ const registerUser = async (req, res) => {
         if (existingUser) {
             return res.status(400).json({ message: "User already exists" });
         }
-        const hashedPassword = await bcrypt.hash(password, 10); // Hash the password before saving
+        //const hashedPassword = await bcrypt.hash(password, 10); // Hash the password before saving
 
         // Create a new user
-        const user = await User.create({ username, email: email.toLowerCase(), password:hashedPassword });
+        const user = await User.create({ username, email: email.toLowerCase(), password });
         res.status(201).json({ message: "User created successfully", user: { userId: user._id, username: user.username, email: user.email } });
 
 
@@ -50,7 +52,18 @@ const loginUser = async (req, res) => {
             return res.status(400).json({ message: "Invalid credentials" });
         }
 
-        //encrypt user password before sending it back in the response
+        // Generate a JWT token
+        const token = jwt.sign({ userId: user._id, 
+            username: user.username, 
+            email: user.email }, 
+            process.env.JWT_SECRET, { expiresIn: "1h" }
+        );
+        res.cookie("token", token, 
+            { httpOnly: true, 
+                secure: false, // Set to true in production with HTTPS
+                sameSite: "strict", 
+                maxAge: 3600000 
+            }); // Set the token in a cookie
 
         // If everything is fine, send a success response
         res.status(200).json({ message: "Login successful", user: { userId: user._id, username: user.username, email: user.email } });
