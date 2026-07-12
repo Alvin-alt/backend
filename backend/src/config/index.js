@@ -1,11 +1,20 @@
 import dotenv from "dotenv";
-//import express from "express";
+import express from "express";
 import connectDB from "./database.js";
 import app from "./app.js";
+import cookieParser from "cookie-parser";  //new
+import cors from "cors"; //new
+
 
 dotenv.config({
     path: './.env',
 }); // Load environment variables from .env file
+
+app.use(cookieParser()); // Use cookie-parser middleware to parse cookies
+app.use(cors({
+    origin: process.env.CLIENT_URL, // Allow requests from the specified client URL
+    credentials: true, // Allow credentials (cookies) to be sent with requests
+}));    
 
 
 const startServer = async () => {

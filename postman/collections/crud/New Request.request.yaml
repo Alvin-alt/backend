@@ -1,6 +1,6 @@
 $kind: http-request
-name: login
-url: "{{BASE_URL}}/users/login"
+name: New Request
+url: http://localhost:4000/api/v1/posts/create
 method: POST
 headers:
   Content-Type: application/json
@@ -8,8 +8,7 @@ body:
   type: json
   content: |-
     {
-        "email": "alvin2@gmail.com",
-        "password": "654321"
+        "name": "Alvin"
     }
 settings:
   disabledSystemHeaders:
@@ -19,4 +18,4 @@ settings:
     - accept
     - accept-encoding
     - connection
-order: 1101841504788664
+order: 4276431225355833
